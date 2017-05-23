@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Valar morghulis
+{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ path('homepage') }}">Homegape</a></li>
+                <li><a href="{{ path('about') }}">About page</a></li>
+                <li class="active"><a href="{{ path('users') }}">User page <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Hello, this is basketball page!</h1>
+        <h3>Basketball list</h3>
+        <table class="table table-striped" ng-controller="basketballController">
+            <thead>
+            <tr>
+                <th ng-repeat="(key,value) in users[0]" ng-bind="key"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in users">
+                <td ng-repeat="(key, val) in row">
+                    <input type="text" class="form-control" ng-model="row[key]">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
