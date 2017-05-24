@@ -16,22 +16,90 @@ Valar morghulis
         </ul>
     </div>
 </nav>
-<div class="container">
+<div class="container" ng-controller="americanFootballController">
     <h1>Hello, this is american football page!</h1>
     <h3>American football list</h3>
-    <table class="table table-striped" ng-controller="americanFootballController">
+    <button class="btn btn-success" ng-click="" data-toggle="modal" data-target="#myModal">New row</button>
+    <table class="table table-striped">
         <thead>
         <tr>
             <th ng-repeat="(key,value) in users[0]" ng-bind="key"></th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="row in users">
+        <tr ng-repeat="row in users track by $index">
             <td ng-repeat="(key, val) in row">
-                <input type="text" class="form-control" ng-model="row[key]">
+                <input type="text" class="form-control" ng-model="row[key]" readonly>
+            </td>
+            <td>
+                <div class="btn btn-group" style="display: flex;">
+                    <button class="btn btn-primary" ng-click="update(row)" data-toggle="modal" data-target="#myModal">Update</button>
+                    <button class="btn btn-danger" ng-click="delete(row)">Delete</button>
+                </div>
             </td>
         </tr>
         </tbody>
     </table>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">American football list update</h4>
+                </div>
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                    
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="americanFootballEventStateId">americanFootballEventStateId:</label>
+                            <div class="col-sm-7">
+                                <input type="number" class="form-control" ng-model="edited.americanFootballEventStateId" name="americanFootballEventStateId">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="playType">playType:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" ng-model="edited.playType" name="playType">
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-5" for="scoreAttemptType">scoreAttemptType:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" ng-model="edited.scoreAttemptType" name="scoreAttemptType">
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-5" for="driveResult">driveResult:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" ng-model="edited.driveResult" name="driveResult">
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-5" for="points">points:</label>
+                            <div class="col-sm-7">
+                                <input type="number" class="form-control" ng-model="edited.points" name="points">
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-5" for="comment">comment:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" ng-model="edited.comment" name="comment">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" ng-click="save(edited)">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
 </div>
 {% endblock %}
