@@ -10,16 +10,16 @@ Valar morghulis
         <ul class="nav navbar-nav">
             <li><a href="{{ path('homepage') }}">Homegape</a></li>
             <li><a href="{{ path('americanFootball') }}">American football</a></li>
-            <li class="active"><a href="{{ path('baseball') }}">Baseball <span class="sr-only">(current)</span></a></li>
+            <li><a href="{{ path('baseball') }}">Baseball</a></li>
             <li><a href="{{ path('basketball') }}">Basketball</a></li>
-            <li><a href="{{ path('iceHockey') }}">Ice hockey</a></li>
+            <li class="active"><a href="{{ path('iceHockey') }}">Ice hockey <span class="sr-only">(current)</span></a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
-    <h1>Hello, this is baseball page!</h1>
-    <h3>Baseball list</h3>
-    <table class="table table-striped" ng-controller="baseballController">
+    <h1>Hello, this is ice hockey page!</h1>
+    <h3>Ice hockey list</h3>
+    <table class="table table-striped" ng-controller="iceHockeyController">
         <thead>
         <tr>
             <th ng-repeat="(key,value) in users[0]" ng-bind="key"></th>
