@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-Valar morghulis
+Sorts - Tables
 {% endblock %}
 
 {% block body %}
@@ -9,18 +9,20 @@ Valar morghulis
     <div class="container">
         <ul class="nav navbar-nav">
             <li class="active"><a href="{{ path('homepage') }}">Homegape <span class="sr-only">(current)</span></a></li>
-            <li><a href="{{ path('about') }}">About page</a></li>
-            <li><a href="{{ path('users') }}">User page</a></li>
+            <li><a href="{{ path('americanFootball') }}">American football</a></li>
+            <li><a href="{{ path('baseball') }}">Baseball</a></li>
+            <li><a href="{{ path('basketball') }}">Basketball</a></li>
+            <li><a href="{{ path('iceHockey') }}">Ice hockey</a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
-    <h1>Hello, this is the homepage!</h1>
-    <h2>Fontos dolgok</h2>
+    <h1>Sports of this site:</h1>
     <ul>
-        <li>- bla</li>
-        <li>- blabla</li>
-        <li>...blablabla</li>
+        <li><a href="{{ path('americanFootball') }}">american football</a></li>
+        <li><a href="{{ path('baseball') }}">baseball</a></li>
+        <li><a href="{{ path('basketball') }}">basketball</a></li>
+        <li><a href="{{ path('iceHockey') }}">Ice hockey</a></li>
     </ul>
 </div>
 {% endblock %}
