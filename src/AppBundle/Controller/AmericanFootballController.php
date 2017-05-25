@@ -33,4 +33,27 @@ class AmericanFootballController extends Controller
         $response = $serializer->serialize($users, 'json');
         return new Response($response);
     }
+
+    /**
+     * @Route("/americanFootball/{id}", name="americanFootball_update")
+     * @Method("POST")
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $post = json_decode($request->getContent());
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:AmericanFootballPlays')->find($id);
+
+        foreach($post as $key => $val) {
+            $setter = 'set' . ucfirst($key);
+            $user->{$setter}($val);
+        }
+
+        $em->persist($user);
+
+        $em->flush();
+        
+        return new Response('Saved new product with id '.$user->getId());
+    }
 }

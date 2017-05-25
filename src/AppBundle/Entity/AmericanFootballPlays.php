@@ -81,4 +81,39 @@ class AmericanFootballPlays {
     {
         return $this->comment;
     }
+
+    public function setId($val)
+    {
+        $this->id = $val;
+    }
+
+    public function setAmericanFootballEventStateId($val)
+    {
+        $this->american_football_event_state_id = $val;
+    }
+
+    public function setPlayType($val)
+    {
+        $this->play_type = $val;
+    }
+
+    public function setScoreAttemptType($val)
+    {
+        $this->score_attempt_type = $val;
+    }
+
+    public function setDriveResult($val)
+    {
+        $this->drive_result = $val;
+    }
+
+    public function setPoints($val)
+    {
+        $this->points = $val;
+    }
+
+    public function setComment($val)
+    {
+        $this->comment = $val;
+    }
 }

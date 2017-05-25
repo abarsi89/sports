@@ -12,8 +12,10 @@ symfony.controller('americanFootballController', function($scope, $http) {
     };
     $scope.save = function(updated){
         console.log(updated);
-        $data = updated;
-        $http.post('americanFootball/list', $data)
+        $http.post('americanFootball/'+updated.id, 
+            updated,
+            {headers: {'Content-Type': 'application/x-www-form-urlencoded'} }
+            )
             .then(function(response){
             console.log(response.data);
         });
